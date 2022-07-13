@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./z2 2home.css";
 import { useNavigate } from "react-router-dom";
 import { login } from "../actions/user";
+import { DefaultContext } from "../Context";
+import { useContext } from "react";
 
-export default function Form({handleSigned}) {
+export default function Form() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {handleSetIsAuth, setEmail, setPassword, email, password} = useContext(DefaultContext);
 
   const handleEmail = (event) => {
     setEmail(event.target.value)
@@ -17,7 +18,7 @@ export default function Form({handleSigned}) {
   }
 
   const handleSubmit = () => {
-    login(email, password, handleSigned);
+    login(email, password, handleSetIsAuth);
     navigate('/');
   }
 

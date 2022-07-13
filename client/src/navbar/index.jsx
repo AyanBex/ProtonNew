@@ -1,17 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import "./navbar.css";
+import { DefaultContext } from "../Context";
+import { useContext } from "react";
 // jshint ignore:start
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  const { isAuth } = useContext(DefaultContext);
   
   return (
     <div className="navbar">
-      <a href="/logo" className="logo">
+      <a href="/" className="logo">
         Proton
       </a>
       <div className="links1">
-        <a href="/about" className="a1">
+        <a href="/catalog" className="a1">
           Шаблоны
         </a>
         <a href="/action" className="a1">
@@ -21,14 +23,21 @@ const Navbar = () => {
           Цены
         </a>
       </div>
-      <div className="links2">
+      {!isAuth ?
+        <div className="links2">
         <a className="login" href="/login">
           Войти
         </a>
         <a className="button" href="/registration">
           Регистрация
         </a>
+      </div> : 
+      <div className="links2">
+        <a className="login" href="/[profile]">
+          Профиль
+        </a>
       </div>
+      }
     </div>
   );
 };

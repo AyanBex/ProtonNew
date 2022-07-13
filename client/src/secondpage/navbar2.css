@@ -121,8 +121,10 @@ a {
 .products1 {
   display: flex;
   margin-top: 70px;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 50px;
   align-items: center;
+  justify-content: center;
   max-width: 100%;
   flex-wrap: wrap;
 }

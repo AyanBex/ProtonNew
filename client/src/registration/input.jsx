@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import "./z2 home.css";
 import { useNavigate } from "react-router";
 import { registration } from "../actions/user";
+import { DefaultContext } from "../Context";
+import { useContext } from "react";
 
 export default function Form() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { setEmail, setPassword, email, password } = useContext(DefaultContext);
 
   const handleEmail = (event) => {
     setEmail(event.target.value)

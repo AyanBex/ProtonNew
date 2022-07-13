@@ -1,10 +1,11 @@
-const Router = require('express');
-const User = require('../models/User');
-const bcrypt = require('bcryptjs');
-const config = require('config');
-const jwt = require('jsonwebtoken');
-const {check, validationResult} = require('express-validator');
-const router = new Router();
+import express from 'express';
+import {getItems} from '../controllers/item.js';
+import User from "../models/User.js";
+const router = express.Router();
+import bcrypt from 'bcryptjs';
+import config from 'config';
+import jwt from 'jsonwebtoken';
+import {check, validationResult} from 'express-validator';
 
 router.post('/registration',
     [
@@ -67,4 +68,6 @@ router.post('/login',
     };
 });
 
-module.exports = router;
+router.get('/items', getItems)
+
+export default router;

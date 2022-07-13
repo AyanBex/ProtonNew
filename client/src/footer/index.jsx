@@ -14,13 +14,13 @@ const Footer = () => {
           <a href="/instagram">
             <img
               className="instagram"
-              src={require("../../imgs/instagram.png")}
+              src={require("../imgs/instagram.png")}
             />
           </a>
           <a href="/facebook">
             <img
               className="telegram"
-              src={require("../../imgs/telegram.png")}
+              src={require("../imgs/telegram.png")}
             />
           </a>
         </div>
